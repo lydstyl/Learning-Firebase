@@ -5,57 +5,35 @@
     <title>Learning Firebase</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     
-    
-    
-    
     <!-- Firebase App is always required and must be first -->
     <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
     
     <!-- Add additional services that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-auth.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-auth.js"></script> -->
     <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-messaging.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-functions.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-messaging.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-functions.js"></script> -->
     
     <!-- Comment out (or don't include) services that you don't want to use -->
     <!-- <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-storage.js"></script> -->
 </head>
 <body>
-    <h1 id="bigOne">Learning Firebase</h1>
-
-    <a href="https://firebase.google.com/docs/web/setup">https://firebase.google.com/docs/web/setup</a>
-
-
+    <h1 id="hotDogOutput">Hot dog status:</h1>
     
-    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyDKZkqcOSbX8pESCoLGPujO99S_83oi6DU",
-        authDomain: "learning-c6598.firebaseapp.com",
-        databaseURL: "https://learning-c6598.firebaseio.com",
-        projectId: "learning-c6598",
-        storageBucket: "learning-c6598.appspot.com",
-        messagingSenderId: "808975769506"
-      };
-      firebase.initializeApp(config);
-
-      var bigOne = document.getElementById('bigOne');
-      var dbRef = firebase.database().ref().child('text');
-      dbRef.on('value', snap => {
-        console.log('dddd');
-        
-        bigOne.innerHTML = snap.val()
-
-      }
-    );
-
-      console.log(firebase);
-      console.log(firebase.database().ref().child('text'));
-      
-
-    </script>
-    <script type="text/javascript" src="js.js"></script>
+    <input type="text" id="latestHotDogStatus">
+    <button id="saveButton">Save</button>
+    
+    
+    <div>
+      <a target="_blank" href="https://www.youtube.com/watch?v=2Vf1D-rUMwE&list=PLl-K7zZEsYLmnJ_FpMOZgyg6XcIGBu2OX">https://www.youtube.com/watch?v=2Vf1D-rUMwE&list=PLl-K7zZEsYLmnJ_FpMOZgyg6XcIGBu2OX</a>
+    </div>
+    <div>
+      <a href="https://firebase.google.com/docs/web/setup">https://firebase.google.com/docs/web/setup</a>
+    </div>
+    
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script> -->
+    
+    <script src="./js.js"></script>
 </body>
 </html>
