@@ -1,4 +1,3 @@
-// Initialize Firebase
 var config = {
     apiKey: "AIzaSyDKZkqcOSbX8pESCoLGPujO99S_83oi6DU",
     authDomain: "learning-c6598.firebaseapp.com",
@@ -8,7 +7,9 @@ var config = {
     messagingSenderId: "808975769506"
 };
 firebase.initializeApp(config);
-let firestore = firebase.firestore();
+const firestore = firebase.firestore();
+const settings = {/* your settings... */ timestampsInSnapshots: true};
+firestore.settings(settings);
 
 const docRef = firestore.doc("samples/sandwichData");
 
@@ -17,28 +18,16 @@ const inputTextField = document.querySelector("#latestHotDogStatus");
 const saveButton = document.querySelector("#saveButton");
 
 saveButton.addEventListener("click", function () {
-    const textToSave = inputTextField.nodeValue;
+    const textToSave = inputTextField.value;
     console.log("I am going to save " + textToSave + "to Firestore");
-    docRef.set({
-        hotDogStatus: textToSave
-    });
+    docRef
+        .set({
+            hotDogStatus: textToSave
+        })
+        .then( function () {
+            console.log("Status saved!");
+        })
+        .catch(function (error) {
+            console.log("Got an error: ", error);
+        });
 })
-
-
-
-
-
-
-
-// var bigOne = document.getElementById('bigOne');
-// var dbRef = firebase.database().ref().child('text');
-// dbRef.on('value', snap => {
-// console.log('dddd');
-
-// bigOne.innerHTML = snap.val()
-
-// }
-// );
-
-// console.log(firebase);
-// console.log(firebase.database().ref().child('text'));
