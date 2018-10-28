@@ -1,3 +1,6 @@
 .hide{
     display: none;
 }
+#log{
+    display: inline-block;
+}
