@@ -9,7 +9,7 @@
     <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
     
     <!-- Add additional services that you want to use -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-auth.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-auth.js"></script>
     <!-- <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-database.js"></script> -->
     <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
     <!-- <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-messaging.js"></script> -->
@@ -19,6 +19,20 @@
     <!-- <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-storage.js"></script> -->
 </head>
 <body>
+    <header class="container">
+      <input id="txtEmail" type="email" placeholder="Email">
+      <input id="txtPassword" type="password" placeholder="Password">
+      <button id="btnLogin">
+        Log in
+      </button>
+      <button id="btnSignUp">
+        Sign in
+      </button>
+      <button id="btnLogout" class="hide">
+        Log out
+      </button>
+    </header>
+
     <h1 id="hotDogOutput">Hot dog status:</h1>
     <input type="text" id="latestHotDogStatus">
     <button id="saveButton">Save</button>

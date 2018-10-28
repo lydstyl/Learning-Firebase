@@ -13,6 +13,12 @@ firestore.settings(settings);
 
 const docRef = firestore.doc("samples/sandwichData");
 
+const txtEmail = document.querySelector("#txtEmail");
+const txtPassword = document.querySelector("#txtPassword");
+const btnLogin = document.querySelector("#btnLogin");
+const btnSignUp = document.querySelector("#btnSignUp");
+const btnLogout = document.querySelector("#btnLogout");
+
 const outputHeader = document.querySelector("#hotDogOutput");
 const inputTextField = document.querySelector("#latestHotDogStatus");
 const saveButton = document.querySelector("#saveButton");
@@ -30,6 +36,37 @@ function updateHeader(doc) {
         outputHeader.innerHTML = "Hot dog status: " + myData.hotDogStatus;
     }
 }
+// log in s'identifier; sign in se connecter; sign up s'inscrire; sign out déconnexion
+// toto@toto.com
+btnLogin.addEventListener("click", e =>{
+    // TODO: CHECK FOR REAL EMAIL
+    const email = txtEmail.value;
+    const pass = txtPassword.value;
+    const auth = firebase.auth();
+    const promise = auth.signInWithEmailAndPassword(email, pass);
+    promise.catch(e => console.log(e.message));
+});
+btnSignUp.addEventListener("click", e =>{
+    const email = txtEmail.value;
+    const pass = txtPassword.value;
+    const auth = firebase.auth();
+    const promise = auth.createUserWithEmailAndPassword(email, pass);
+    promise.catch(e => console.log(e.message));
+});
+btnLogout.addEventListener("click", e => {
+    firebase.auth().signOut();
+});
+firebase.auth().onAuthStateChanged(firebaseUser => {
+    console.log("onAuthStateChanged");
+    
+    if (firebaseUser) {
+        console.log(firebaseUser);
+        btnLogout.classList.remove("hide");
+    } else {
+        console.log('not logged in');
+        btnLogout.classList.add("hide");
+    }
+});
 
 saveButton.addEventListener("click", () => {
     const textToSave = inputTextField.value;
